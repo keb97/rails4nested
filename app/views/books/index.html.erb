@@ -1,0 +1,25 @@
+<h1>Listing books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.page %></td>
+        <td><%= link_to 'Show', book %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>

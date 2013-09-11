@@ -1,0 +1,21 @@
+<%= form_for [@book, @dedication] do |f| %>
+  <% if @dedication.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dedication.errors.count, "error") %> prohibited this dedication from being saved:</h2>
+
+      <ul>
+      <% @dedication.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :words %><br>
+    <%= f.text_field :words %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

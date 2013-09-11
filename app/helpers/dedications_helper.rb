@@ -1,0 +1,2 @@
+module DedicationsHelper
+end
