@@ -8,7 +8,7 @@
   <strong>Dedications (if any):</strong>
   <% @book.dedications.each do |dedication| %>
     <p>
-      <%= dedication.words %>
+      <%= link_to dedication.words, [@book, dedication] %>
     <p>
   <% end %>
 </p>

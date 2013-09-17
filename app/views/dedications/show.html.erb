@@ -5,5 +5,8 @@
   <%= @dedication.words %>
 </p>
 
+<td><%= link_to 'Edit dedication', [:edit, @book, @dedication] %></td>
+<td><%= link_to 'Delete dedication', [@book, @dedication], method: :delete, data: { confirm: "Are you sure you want to delete this dedication?"} %></td>
+
 <td><%= link_to 'Back to the book', @book %></td>
 
