@@ -1,24 +1,15 @@
 class DedicationsController < ApplicationController
-  before_action :set_dedication, only: [:show]
+  before_action :set_dedication, only: [:show, :edit, :update, :destroy]
   before_action :set_book
 
-
-
-  # GET /dedications/1
-  # GET /dedications/1.json
   def show
     @dedication = Dedication.find(params[:id])
   end
 
-  # GET /dedications/new
   def new
     @dedication = @book.dedications.build
   end
 
-
-
-  # POST /dedications
-  # POST /dedications.json
   def create
     @dedication = @book.dedications.build(dedication_params)
 
@@ -33,6 +24,33 @@ class DedicationsController < ApplicationController
     end
   end
 
+  def edit
+    @dedication = Dedication.find(params[:id])
+  end
+
+  def update
+    @dedication = Dedication.find(params[:id])
+
+    respond_to do |format|
+      if @dedication.update_attributes(dedication_params)
+        format.html { redirect_to [@book, @dedication], notice: 'Dedication was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @dedication.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @dedication = Dedication.find(params[:id])
+    @dedication.destroy
+
+    respond_to do |format|
+      format.html { redirect_to book_url }
+      format.json { head :no_content }
+    end
+  end
 
 
 
