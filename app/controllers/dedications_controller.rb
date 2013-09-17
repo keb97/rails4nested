@@ -47,7 +47,7 @@ class DedicationsController < ApplicationController
     @dedication.destroy
 
     respond_to do |format|
-      format.html { redirect_to book_url }
+      format.html { redirect_to @book }
       format.json { head :no_content }
     end
   end
